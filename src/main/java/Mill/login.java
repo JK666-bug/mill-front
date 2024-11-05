@@ -1,14 +1,11 @@
 package Mill;
 import Entity.UserCredentials;
-import Entity.UserCredentials;
 import Storage.TokenStorage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.formdev.flatlaf.FlatClientProperties;
 import net.miginfocom.swing.MigLayout;
 import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
-import request.MillApiService;
+import Request.LocalApiService;
 import util.JsonUtils;
 import util.OkHttpUtils;
 
@@ -30,41 +27,71 @@ public class login extends JPanel {
         login = new JButton("Login");
 
         login.addActionListener(e -> {
+            String userName2 = userName.getText().trim();
+            String passWord2 = String.valueOf(passWord.getPassword());
 
-            UserCredentials loginCredentials = new UserCredentials(
-                    userName.getText().trim(),
-                    String.valueOf(passWord.getPassword())
-            );
-            OkHttpUtils.builder()
-                    .url(MillApiService.HOST + "/mill") // Ensure this URL is correct
-                    .post(JsonUtils.toJsonString(loginCredentials))
-                    .async(new OkHttpUtils.ICallBack() {
-                        @Override
-                        public void onSuccessful(Call call, String data) {
-                            // Assume your server returns a JSON object containing the token
-                            try {
-                                // Parse the response to get the token
-                                ObjectMapper objectMapper = new ObjectMapper();
-                                Map<String, Object> responseMap = objectMapper.readValue(data, Map.class);
-                                String token = (String) responseMap.get("token"); // Adjust the key as per your API response
-                                new GameFrame();
-                                // Save the token
-                                TokenStorage.setToken(token);
+            if (!userName2.isEmpty() && !passWord2.isEmpty()) {
 
-                                // Optionally, inform the user that login was successful
-                                JOptionPane.showMessageDialog(null, "Login successful!");
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                                JOptionPane.showMessageDialog(null, "Error processing response.");
+                UserCredentials loginCredentials = new UserCredentials(
+                        userName.getText().trim(),
+                        String.valueOf(passWord.getPassword())
+                );
+                OkHttpUtils.builder()
+                        .url(LocalApiService.HOST + "/mill/login") // Ensure this URL is correct
+                        .post(JsonUtils.toJsonString(loginCredentials))
+                        .async(new OkHttpUtils.ICallBack() {
+                            @Override
+                            public void onSuccessful(Call call, String data) {
+                                // Assume your server returns a JSON object containing the token
+                                try {
+                                    // Parse the response to get the token
+                                    ObjectMapper objectMapper = new ObjectMapper();
+                                    Map<String, Object> responseMap = objectMapper.readValue(data, Map.class);
+                                    String token = (String) responseMap.get("token"); // Adjust the key as per your API response
+                                    new GameFrame();
+                                    // Save the token
+                                    TokenStorage.setToken(token);
+
+                                    // Optionally, inform the user that login was successful
+                                    JOptionPane.showMessageDialog(null, "Login successful!");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                    JOptionPane.showMessageDialog(null, "Error processing response.");
+                                }
                             }
-                        }
-                        @Override
-                        public void onFailure(Call call, String errorMsg) {
-                            showErrorFrame("Username or Password is incorrect.");
-                            JOptionPane.showMessageDialog(null, "Login failed: " + errorMsg);
-                        }
-                    });
 
+                            @Override
+                            public void onFailure(Call call, String errorMsg) {
+                                showErrorFrame("Username or Password is incorrect.");
+                                JOptionPane.showMessageDialog(null, "Login failed: " + errorMsg);
+                            }
+                        });
+            }
+            else if (userName2.isEmpty()){
+                JFrame errorFrame = new JFrame("Error");
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                errorFrame.setSize(300, 150);
+                JLabel errorLabel = new JLabel("Please enter your username", SwingConstants.CENTER);
+                errorFrame.getContentPane().add(errorLabel, BorderLayout.CENTER);
+                JButton closeButton = new JButton("close");
+                closeButton.addActionListener(e1 -> errorFrame.dispose());
+
+                errorFrame.getContentPane().add(closeButton, BorderLayout.SOUTH);
+                errorFrame.setLocationRelativeTo(null);
+                errorFrame.setVisible(true);
+            }
+            else{
+                JFrame errorFrame = new JFrame("Error");
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                errorFrame.setSize(300, 150);
+                JLabel errorLabel = new JLabel("Please enter your password", SwingConstants.CENTER);
+                errorFrame.getContentPane().add(errorLabel, BorderLayout.CENTER);
+                JButton closeButton = new JButton("close");
+                closeButton.addActionListener(e2 -> errorFrame.dispose());
+                errorFrame.getContentPane().add(closeButton, BorderLayout.SOUTH);
+                errorFrame.setLocationRelativeTo(null);
+                errorFrame.setVisible(true);
+            }
         });
 
         BackgroundPanel backgroundPanel = new BackgroundPanel();

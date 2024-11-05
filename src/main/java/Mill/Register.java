@@ -4,7 +4,7 @@ import Entity.UserCredentials;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.util.UIScale;
 import net.miginfocom.swing.MigLayout;
-import request.MillApiService;
+import Request.LocalApiService;
 import util.JsonUtils;
 import util.OkHttpUtils;
 
@@ -102,15 +102,18 @@ public class Register extends JFrame {
     }
 
     private void register() {
-    if(checkPassword()){
         String userName2 = userName.getText().trim();
         String password2 = String.valueOf(passWord.getPassword());
+        System.out.println(userName2);
+        if(checkPassword()&& !userName2.isEmpty()){
+
         UserCredentials registerCredentials = new UserCredentials(userName2, password2);
 
-        OkHttpUtils.builder()
-                .url(MillApiService.HOST + "/mill")
+        String s = OkHttpUtils.builder()
+                .url(LocalApiService.HOST + "/mill/register")
                 .post(JsonUtils.toJsonString(registerCredentials)) // 将 credentials 转换为 JSON 字符串
                 .async();
+        System.out.println(JsonUtils.toJsonString(s));
 
         JFrame successFrame = new JFrame("Successful");
         successFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -123,9 +126,19 @@ public class Register extends JFrame {
         successFrame.setLocationRelativeTo(null);
         successFrame.setVisible(true);
     }
-    else {
-
+    else if(checkPassword()&&userName2.isEmpty()) {
         JFrame errorFrame = new JFrame("Error");
+        errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        errorFrame.setSize(300, 150);
+        JLabel errorLabel = new JLabel("Please enter the username", SwingConstants.CENTER);
+        errorFrame.getContentPane().add(errorLabel, BorderLayout.CENTER);
+        JButton closeButton = new JButton("close");
+        closeButton.addActionListener(e -> errorFrame.dispose());
+        errorFrame.getContentPane().add(closeButton, BorderLayout.SOUTH);
+        errorFrame.setLocationRelativeTo(null);
+        errorFrame.setVisible(true);}
+
+    else{JFrame errorFrame = new JFrame("Error");
         errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         errorFrame.setSize(300, 150);
         JLabel errorLabel = new JLabel("Two password input isn't same", SwingConstants.CENTER);
@@ -134,8 +147,10 @@ public class Register extends JFrame {
         closeButton.addActionListener(e -> errorFrame.dispose());
         errorFrame.getContentPane().add(closeButton, BorderLayout.SOUTH);
         errorFrame.setLocationRelativeTo(null);
-        errorFrame.setVisible(true);}
+        errorFrame.setVisible(true);
     }
+}
+
 
     private boolean checkPassword() {
         String password = String.valueOf(passWord.getPassword());

@@ -2,7 +2,7 @@ package Mill;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.formdev.flatlaf.FlatClientProperties;
-import model.MillDTO;
+import Model.MillDTO;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;

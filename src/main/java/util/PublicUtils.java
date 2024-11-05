@@ -4,10 +4,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import Mill.Chatpanel;
 
-import model.MillDTO;
-import model.Question;
-import model.R;
-import request.MillApiService;
+import Model.MillDTO;
+import Model.Question;
+import Model.R;
+import Request.MillApiService;
 
 
 import java.util.ArrayList;
