@@ -1,22 +1,29 @@
 package Mill;
 
 import Entity.UserCredentials;
+import Request.ApiService;
 import Storage.TokenStorage;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.formdev.flatlaf.FlatClientProperties;
 import net.miginfocom.swing.MigLayout;
 import okhttp3.Call;
-import Request.LocalApiService;
-import util.JsonUtils;
-import util.OkHttpUtils;
+import Util.JsonUtils;
+import Util.OkHttpUtils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
 
-public class login extends JPanel {
-    public login() {
+public class Login extends JPanel {
+    private JFrame frame;
+    public Login(JFrame frame) {
         init();
+    }
+
+    private void afterLogin() {
+        this.setVisible(false);
     }
 
     void init() {
@@ -37,7 +44,7 @@ public class login extends JPanel {
                         String.valueOf(passWord.getPassword())
                 );
                 OkHttpUtils.builder()
-                        .url(LocalApiService.HOST + "/mill/login") // Ensure this URL is correct
+                        .url(ApiService.HOST + "/mill/login") // Ensure this URL is correct
                         .post(JsonUtils.toJsonString(loginCredentials))
                         .async(new OkHttpUtils.ICallBack() {
                             @Override
@@ -46,16 +53,18 @@ public class login extends JPanel {
                                 try {
                                     // Parse the response to get the token
                                     ObjectMapper objectMapper = new ObjectMapper();
-                                    Map<String, Object> responseMap = objectMapper.readValue(data, Map.class);
+                                    Map<String, Object> responseMap = objectMapper.readValue(data, new TypeReference<>() {});
                                     String token = (String) responseMap.get("token"); // Adjust the key as per your API response
+
+//                                    afterLogin();
                                     new GameFrame();
                                     // Save the token
                                     TokenStorage.setToken(token);
 
-                                    // Optionally, inform the user that login was successful
+                                    // Optionally, inform the user that Login was successful
                                     JOptionPane.showMessageDialog(null, "Login successful!");
-                                } catch (IOException ex) {
-                                    ex.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
                                     JOptionPane.showMessageDialog(null, "Error processing response.");
                                 }
                             }
@@ -146,13 +155,13 @@ public class login extends JPanel {
     private Component createSignUpLabel() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         panel.putClientProperty(FlatClientProperties.STYLE, "background:null");
-        JButton cmdRegister = new JButton("sign up");
+        JButton cmdRegister = new JButton("Sign up");
         cmdRegister.setContentAreaFilled(false);
         cmdRegister.setCursor(new Cursor(Cursor.HAND_CURSOR));
         cmdRegister.addActionListener(e -> {
             new Register();
         });
-        JLabel label = new JLabel("Don't have an account ?");
+        JLabel label = new JLabel("Don't have an account?");
         panel.add(label);
         panel.add(cmdRegister);
         return panel;

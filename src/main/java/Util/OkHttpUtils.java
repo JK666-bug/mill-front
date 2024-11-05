@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 import okhttp3.*;
 
@@ -23,6 +23,9 @@ public class OkHttpUtils {
     private String url;
     private Request.Builder request;
 
+    /**
+     * 初始化okHttpClient，并且允许https访问
+     */
     private OkHttpUtils() {
         if (okHttpClient == null) {
             synchronized (OkHttpUtils.class) {
@@ -39,6 +42,12 @@ public class OkHttpUtils {
             }
         }
     }
+
+    /**
+     * 用于异步请求时，控制访问线程数，返回结果
+     *
+     * @return
+     */
     private static Semaphore getSemaphoreInstance() {
         //只能1个线程同时访问
         synchronized (OkHttpUtils.class) {
@@ -49,14 +58,33 @@ public class OkHttpUtils {
         return semaphore;
     }
 
+    /**
+     * 创建OkHttpUtils
+     *
+     * @return
+     */
     public static OkHttpUtils builder() {
         return new OkHttpUtils();
     }
 
+    /**
+     * 添加url
+     *
+     * @param url
+     * @return
+     */
     public OkHttpUtils url(String url) {
         this.url = url;
         return this;
     }
+
+    /**
+     * 添加参数
+     *
+     * @param key   参数名
+     * @param value 参数值
+     * @return
+     */
     public OkHttpUtils addParam(String key, String value) {
         if (paramMap == null) {
             paramMap = new LinkedHashMap<>(16);
@@ -64,6 +92,14 @@ public class OkHttpUtils {
         paramMap.put(key, value);
         return this;
     }
+
+    /**
+     * 添加请求头
+     *
+     * @param key   参数名
+     * @param value 参数值
+     * @return
+     */
     public OkHttpUtils addHeader(String key, String value) {
         if (headerMap == null) {
             headerMap = new LinkedHashMap<>(16);
@@ -71,6 +107,12 @@ public class OkHttpUtils {
         headerMap.put(key, value);
         return this;
     }
+
+    /**
+     * 初始化get方法
+     *
+     * @return
+     */
     public OkHttpUtils get() {
         if (url == null || url.isEmpty()) {
         throw new IllegalArgumentException("URL must not be null or empty");
@@ -119,6 +161,11 @@ public class OkHttpUtils {
         return this;
     }
 
+    /**
+     * 同步请求
+     *
+     * @return
+     */
     public String sync() {
          if (request == null) {
         throw new IllegalStateException("Request has not been built. Call get() or post() first.");
@@ -134,6 +181,10 @@ public class OkHttpUtils {
             return "请求失败：" + e.getMessage();
         }
     }
+
+    /**
+     * 异步请求，有返回值
+     */
     public String async() {
         StringBuilder buffer = new StringBuilder("");
         setHeader(request);
@@ -157,6 +208,12 @@ public class OkHttpUtils {
         }
         return buffer.toString();
     }
+
+    /**
+     * 异步请求，带有接口回调
+     *
+     * @param callBack
+     */
     public void async(ICallBack callBack) {
         setHeader(request);
         okHttpClient.newCall(request.build()).enqueue(new Callback() {
@@ -172,6 +229,12 @@ public class OkHttpUtils {
             }
         });
     }
+
+    /**
+     * 为request添加请求头
+     *
+     * @param request
+     */
     private void setHeader(Request.Builder request) {
         if (headerMap != null) {
             try {
@@ -183,6 +246,13 @@ public class OkHttpUtils {
             }
         }
     }
+
+
+    /**
+     * 生成安全套接字工厂，用于https请求的证书跳过
+     *
+     * @return
+     */
     private static SSLSocketFactory createSSLSocketFactory(TrustManager[] trustAllCerts) {
         SSLSocketFactory ssfFactory = null;
         try {
@@ -213,6 +283,10 @@ public class OkHttpUtils {
                 }
         };
     }
+
+    /**
+     * 自定义一个接口回调
+     */
     public interface ICallBack {
 
         void onSuccessful(Call call, String data);

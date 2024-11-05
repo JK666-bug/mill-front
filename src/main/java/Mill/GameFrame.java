@@ -1,6 +1,5 @@
 package Mill;
 
-
 import com.formdev.flatlaf.util.UIScale;
 
 import javax.swing.*;
@@ -12,15 +11,15 @@ public class GameFrame extends JFrame {
     }
 
     void init() {
-        JFrame gameFrame = new JFrame("Who WANTS TO BE A MILLIONAIRE");
+        JFrame gameFrame = new JFrame("Who Wants To Be A Millionaire");
         gameFrame.setLayout(new BorderLayout());
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.setSize(1100, 500);
         gameFrame.setLocationRelativeTo(null);
         gameFrame.setMinimumSize(UIScale.scale(new Dimension(750, 500)));
 
-        chatPanel = new Chatpanel();
-        leftPanel = new Leftpanel();
+        chatPanel = new ChatPanel();
+        leftPanel = new LeftPanel();
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, chatPanel);
         splitPane.setDividerLocation(0.3);
@@ -30,10 +29,9 @@ public class GameFrame extends JFrame {
         gameFrame.setVisible(true);
 
 
-    }
+   }
 
-    public static Chatpanel chatPanel;
-    public static Leftpanel leftPanel;
-
+   public static ChatPanel chatPanel;
+   public static LeftPanel leftPanel;
 
 }

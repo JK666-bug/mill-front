@@ -6,10 +6,10 @@ import Model.MillDTO;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
-import util.MethodUtil;
-import util.PublicUtils;
+import Util.MethodUtil;
+import Util.PublicUtils;
 
-public class Chatpanel extends JPanel {
+public class ChatPanel extends JPanel {
     private Integer score = 0;
     public static JButton buttonA;
     public static JButton buttonB;
@@ -17,7 +17,7 @@ public class Chatpanel extends JPanel {
     public static JButton buttonD;
     static boolean init = true;
     public static String answer = "A";
-    public Chatpanel() {
+    public ChatPanel() {
         init();
     }
 
@@ -36,18 +36,18 @@ public class Chatpanel extends JPanel {
                 PublicUtils.refreshContext();
                 btnEndGame.setText("END");
 
-                Leftpanel.buttonA.setEnabled(true);
-                Leftpanel.buttonB.setEnabled(true);
-                Leftpanel.buttonC.setEnabled(true);
+                LeftPanel.buttonA.setEnabled(true);
+                LeftPanel.buttonB.setEnabled(true);
+                LeftPanel.buttonC.setEnabled(true);
                 sendChoice("I want to play Who Wants To Be A Millionaire! You should ask me 5 different questions partly. Now let's start!\n");
 
             } else {
-                Chatpanel.showArea.append("Congratulations! You got " + calculateDollars(score) + " dollars!\n");
+                ChatPanel.showArea.append("Congratulations! You got " + calculateDollars(score) + " dollars!\n");
                 btnEndGame.setText("START");
                 buttonDisable();
-                Leftpanel.buttonA.setEnabled(false);
-                Leftpanel.buttonB.setEnabled(false);
-                Leftpanel.buttonC.setEnabled(false);
+                LeftPanel.buttonA.setEnabled(false);
+                LeftPanel.buttonB.setEnabled(false);
+                LeftPanel.buttonC.setEnabled(false);
             }
         });
 
@@ -78,7 +78,6 @@ public class Chatpanel extends JPanel {
         buttonD.addActionListener(e -> {
             buttonDisable();
             sendChoice("I choose D");
-
         });
 
         btnEndGame.setPreferredSize(new Dimension(90, 30));
@@ -111,16 +110,16 @@ public class Chatpanel extends JPanel {
 
     private void initAll() {
         init = true;
-        Leftpanel.buttonA.setVisible(true);
-        Leftpanel.buttonB.setVisible(true);
-        Leftpanel.buttonC.setVisible(true);
-        Leftpanel.number.setText("0");
+        LeftPanel.buttonA.setVisible(true);
+        LeftPanel.buttonB.setVisible(true);
+        LeftPanel.buttonC.setVisible(true);
+        LeftPanel.number.setText("0");
 
-        Leftpanel.label1.setForeground(Color.white);
-        Leftpanel.label2.setForeground(Color.white);
-        Leftpanel.label3.setForeground(Color.white);
-        Leftpanel.label4.setForeground(Color.white);
-        Leftpanel.label5.setForeground(Color.white);
+        LeftPanel.label1.setForeground(Color.white);
+        LeftPanel.label2.setForeground(Color.white);
+        LeftPanel.label3.setForeground(Color.white);
+        LeftPanel.label4.setForeground(Color.white);
+        LeftPanel.label5.setForeground(Color.white);
         showArea.setText("Please click button to start\n");
     }
 
@@ -171,7 +170,7 @@ public class Chatpanel extends JPanel {
             }
             sendChoiceHandler(dto);
             buttonEnable();
-            Leftpanel.number.setText(dto.getProgress().toString());
+            LeftPanel.number.setText(dto.getProgress().toString());
             if (dto.getQuestion() != null) {
                 System.out.println(dto.getQuestion().getAnswer());
             }
@@ -188,24 +187,24 @@ public class Chatpanel extends JPanel {
                         showArea.append("What a shame! You didn't get money, please click END button to restart");
                         break;
                     case 20:
-                        Leftpanel.label1.setForeground(new Color(1, 1, 1, 0.5f));
-                        Leftpanel.label2.setForeground(Color.YELLOW);
+                        LeftPanel.label1.setForeground(new Color(1, 1, 1, 0.5f));
+                        LeftPanel.label2.setForeground(Color.YELLOW);
                         break;
                     case 40:
-                        Leftpanel.label2.setForeground(new Color(1, 1, 1, 0.5f));
-                        Leftpanel.label3.setForeground(Color.YELLOW);
+                        LeftPanel.label2.setForeground(new Color(1, 1, 1, 0.5f));
+                        LeftPanel.label3.setForeground(Color.YELLOW);
                         break;
                     case 60:
-                        Leftpanel.label2.setForeground(new Color(1, 1, 1, 0.5f));
-                        Leftpanel.label3.setForeground(Color.YELLOW);
+                        LeftPanel.label2.setForeground(new Color(1, 1, 1, 0.5f));
+                        LeftPanel.label3.setForeground(Color.YELLOW);
                         break;
                     case 80:
-                        Leftpanel.label3.setForeground(new Color(1, 1, 1, 0.5f));
-                        Leftpanel.label4.setForeground(Color.YELLOW);
+                        LeftPanel.label3.setForeground(new Color(1, 1, 1, 0.5f));
+                        LeftPanel.label4.setForeground(Color.YELLOW);
                         break;
                     case 100:
-                        Leftpanel.label4.setForeground(new Color(1, 1, 1, 0.5f));
-                        Leftpanel.label5.setForeground(Color.YELLOW);
+                        LeftPanel.label4.setForeground(new Color(1, 1, 1, 0.5f));
+                        LeftPanel.label5.setForeground(Color.YELLOW);
                         break;
                 }
             }

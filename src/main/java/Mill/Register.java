@@ -1,16 +1,17 @@
 package Mill;
 
 import Entity.UserCredentials;
+import Request.ApiService;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.util.UIScale;
 import net.miginfocom.swing.MigLayout;
-import Request.LocalApiService;
-import util.JsonUtils;
-import util.OkHttpUtils;
+import Util.JsonUtils;
+import Util.OkHttpUtils;
+
 import javax.swing.*;
 import java.awt.*;
-import static Mill.Leftpanel.panel;
 
+import static Mill.LeftPanel.panel;
 
 public class Register extends JFrame {
     public Register() {
@@ -48,22 +49,23 @@ public class Register extends JFrame {
         cmdRegister.addActionListener(e -> register());
         addAll();
     }
-     private void addAll() {
-            panel.add(lbTitle);
-            panel.add(new JLabel("Gender"));
-            panel.add(panelGender);
-            panel.add(new JSeparator());
-            panel.add(new JLabel("Username"));
-            panel.add(userName);
-            panel.add(new JLabel("Password"));
-            panel.add(passWord);
-            panel.add(new JLabel("Confirm Password"));
-            panel.add(confirmPassword);
-            panel.add(cmdRegister);
-            panel.add(createLoginLabel());
-            add(panel);
-            setVisible(true);
-        }
+
+    private void addAll() {
+        panel.add(lbTitle);
+        panel.add(new JLabel("Gender"));
+        panel.add(panelGender);
+        panel.add(new JSeparator());
+        panel.add(new JLabel("Username"));
+        panel.add(userName);
+        panel.add(new JLabel("Password"));
+        panel.add(passWord);
+        panel.add(new JLabel("Confirm Password"));
+        panel.add(confirmPassword);
+        panel.add(cmdRegister);
+        panel.add(createLoginLabel());
+        add(panel);
+        setVisible(true);
+    }
 
     private Component createGenderPanel() {
         JPanel panel = new JPanel(new MigLayout("insets 0"));
@@ -103,13 +105,18 @@ public class Register extends JFrame {
         String userName2 = userName.getText().trim();
         String password2 = String.valueOf(passWord.getPassword());
         System.out.println(userName2);
+        if (checkPassword() && !userName2.isEmpty()) {
 
-        if(checkPassword()&& !userName2.isEmpty()){
             UserCredentials registerCredentials = new UserCredentials(userName2, password2);
+
             String s = OkHttpUtils.builder()
-                .url(LocalApiService.HOST + "/mill/register")
-                .post(JsonUtils.toJsonString(registerCredentials)) // 将 credentials 转换为 JSON 字符串
-                .async();
+                    .url(ApiService.HOST + "/mill/register")
+                    .addParam("username", registerCredentials.getUsername())
+                    .addParam("password", registerCredentials.getPassword())
+                    .post(false)
+                    .async();
+
+            System.out.println(("Trying to register user:" + JsonUtils.toJsonString(registerCredentials)));
 
             System.out.println(JsonUtils.toJsonString(s));
 

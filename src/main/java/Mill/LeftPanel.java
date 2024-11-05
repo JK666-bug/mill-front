@@ -7,9 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-import util.MethodUtil;
+import Util.MethodUtil;
 
-public class Leftpanel extends JPanel {
+public class LeftPanel extends JPanel {
+
     public static JLabel number;
     public static JPanel ScorePanel;
     public static JButton buttonA;
@@ -22,7 +23,7 @@ public class Leftpanel extends JPanel {
     public static JLabel label5;
     public static JLabel labelScore;
 
-    public Leftpanel() {
+    public LeftPanel() {
         init();
     }
 
@@ -40,7 +41,7 @@ public class Leftpanel extends JPanel {
         JPanel buttonpanel = new JPanel(new MigLayout("gap 15", "[fill]", "[center]"));
         buttonA = new JButton("VOTE");
         buttonA.addActionListener(e -> MethodUtil.runWithThread(() -> {
-            Chatpanel.showArea.append("If you trust me, you can choose " + getVotedAnswer() + "\n");
+            ChatPanel.showArea.append("If you trust me, you can choose " + getVotedAnswer() + "\n");
             buttonA.setEnabled(false);
         }
         ));
@@ -48,14 +49,14 @@ public class Leftpanel extends JPanel {
         buttonB = new JButton("CALL");
         buttonB.setFont(new Font("HarmonyOS Sans SC Black", Font.PLAIN, 15));
         buttonB.addActionListener(e -> MethodUtil.runWithThread(() -> {
-                    Chatpanel.showArea.append("If you trust me, you can choose " + getVotedAnswer() + "\n");
+                    ChatPanel.showArea.append("If you trust me, you can choose " + getVotedAnswer() + "\n");
                     buttonB.setEnabled(false);
                 }
 
         ));
         buttonC = new JButton("HINT");
         buttonC.addActionListener(e -> MethodUtil.runWithThread(() -> {
-                    Chatpanel.showArea.append(getHintAnswer() + " is one of the wrong answers" + "\n");
+                    ChatPanel.showArea.append(getHintAnswer() + " is one of the wrong answers" + "\n");
                     buttonC.setEnabled(false);
                 }
         ));
@@ -73,7 +74,7 @@ public class Leftpanel extends JPanel {
         Random random = new Random();
         char[] charset = {'A', 'B', 'C', 'D'};
         char selectedChar;
-        String target = Chatpanel.answer;
+        String target = ChatPanel.answer;
         do {
             int randomIndex = random.nextInt(charset.length);
             selectedChar = charset[randomIndex];

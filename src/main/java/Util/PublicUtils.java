@@ -1,14 +1,13 @@
-package Util;
-
-import Request.ApiService;
+package util;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import Mill.ChatPanel;
+import Mill.Chatpanel;
 
 import Model.MillDTO;
 import Model.Question;
 import Model.R;
+import Request.MillApiService;
 
 
 import java.util.ArrayList;
@@ -16,30 +15,37 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Mill 通用工具类
+ *
+ * @author InwardFlow
+ */
 public class PublicUtils {
 
     // Using a list of map to save the context
     public static List<Map<String, String>> context = new ArrayList<>();
 
+    /**
+     * Empties the context
+     */
     public static void refreshContext() {
         context = new ArrayList<>();
     }
 
     public static MillDTO sendAndGetMillDTO(String request) throws JsonProcessingException {
         // 将用户发送消息显示在屏幕上
-        MethodUtil.runWithThread(() -> ChatPanel.showArea.append(request + "\n\n"));
+        MethodUtil.runWithThread(() -> Chatpanel.showArea.append(request+"\n\n"));
 
         // Send request and get response
         String str = OkHttpUtils.builder()
-                .url(ApiService.HOST + "/mill")
+                .url(MillApiService.HOST + "/mill")
                 .post(JsonUtils.toJsonString(context))
                 .async();
 
         System.out.println("\nPost successfully! The response is: " + str);
 
         // Resolve the R<MillDTO> Json String
-        R<MillDTO> result = JsonUtils.parseObject(str, new TypeReference<>() {
-        });
+        R<MillDTO> result = JsonUtils.parseObject(str, new TypeReference<>() {});
         System.out.println("\nThe Json has been parsed to R<MillDTO> successfully: " + result);
 
         // 在此处我们拿到了 MillDTO
@@ -47,7 +53,7 @@ public class PublicUtils {
         MillDTO response = Objects.requireNonNull(result).getData();
 
         // 将 AI 返回的消息显示在屏幕上
-        MethodUtil.runWithThread(() -> ChatPanel.showArea.append(buildMessage(response) + "\n\n"));
+        MethodUtil.runWithThread(() -> Chatpanel.showArea.append(buildMessage(response)+"\n\n"));
 
         // 用 LinkedHashMap 存储用户与 AI 的聊天记录
         context.add(Map.of("user", request));
