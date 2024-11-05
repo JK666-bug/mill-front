@@ -1,0 +1,26 @@
+2024-11-05 11:01:37 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-11-05 11:01:37 [main] INFO  n.heimeng.web.Agent4jWebApplication - Starting Agent4jWebApplication v0.0.1-SNAPSHOT using Java 20.0.2 with PID 38420 (D:\Project\TEAM\agent4j-web-0.0.1-SNAPSHOT.jar started by 86177 in D:\Project\TEAM)
+2024-11-05 11:01:37 [main] INFO  n.heimeng.web.Agent4jWebApplication - No active profile set, falling back to 1 default profile: "default"
+2024-11-05 11:01:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-05 11:01:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2024-11-05 11:01:39 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2024-11-05 11:01:39 [main] INFO  o.s.c.a.ConfigurationClassEnhancer - @Bean method MapstructAutoConfiguration.springContextUtils is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
+2024-11-05 11:01:40 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-11-05 11:01:40 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-11-05 11:01:40 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-11-05 11:01:40 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-11-05 11:01:40 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-11-05 11:01:40 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2365 ms
+2024-11-05 11:01:42 [main] INFO  n.h.common.ai.factory.AiFactory - 创建 AiModel 实例 key => zhipu
+2024-11-05 11:01:43 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2024-11-05 11:01:43 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-11-05 11:01:43 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-11-05 11:01:43 [main] INFO  n.heimeng.web.Agent4jWebApplication - Started Agent4jWebApplication in 6.4 seconds (process running for 6.946)
+2024-11-05 11:01:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-11-05 11:01:44 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4b4b02d
+2024-11-05 11:01:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-11-05 11:01:44 [main] INFO  n.h.w.runner.SystemApplicationRunner - 初始化 LLM 配置成功
+2024-11-05 11:02:21 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-11-05 11:02:21 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-11-05 11:02:21 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-11-05 11:02:22 [http-nio-8080-exec-6] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 355 ms
