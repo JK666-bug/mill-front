@@ -1,15 +1,15 @@
-package Mill;
+package mill;
 
-import Entity.UserCredentials;
-import Request.ApiService;
-import Storage.TokenStorage;
+import entity.UserCredentials;
+import request.ApiService;
+import storage.TokenStorage;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.formdev.flatlaf.FlatClientProperties;
 import net.miginfocom.swing.MigLayout;
 import okhttp3.Call;
-import Util.JsonUtils;
-import Util.OkHttpUtils;
+import util.JsonUtils;
+import util.OkHttpUtils;
 
 import javax.swing.*;
 import java.awt.*;

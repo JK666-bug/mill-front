@@ -1,4 +1,4 @@
-package Mill;
+package mill;
 
 import com.formdev.flatlaf.util.UIScale;
 

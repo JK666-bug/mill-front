@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-import Mill.Login;
+import mill.Login;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.formdev.flatlaf.util.UIScale;
 

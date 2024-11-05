@@ -1,7 +1,7 @@
-package Util;
+package util;
 
 /**
- * Method Util
+ * Method util
  *
  * @author JK
  */

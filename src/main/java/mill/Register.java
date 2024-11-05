@@ -1,17 +1,17 @@
-package Mill;
+package mill;
 
-import Entity.UserCredentials;
-import Request.ApiService;
+import entity.UserCredentials;
+import request.ApiService;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.util.UIScale;
 import net.miginfocom.swing.MigLayout;
-import Util.JsonUtils;
-import Util.OkHttpUtils;
+import util.JsonUtils;
+import util.OkHttpUtils;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static Mill.LeftPanel.panel;
+import static mill.LeftPanel.panel;
 
 public class Register extends JFrame {
     public Register() {

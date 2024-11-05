@@ -1,4 +1,4 @@
-package Mill;
+package mill;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

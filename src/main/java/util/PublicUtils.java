@@ -1,14 +1,14 @@
-package Util;
+package util;
 
-import Request.ApiService;
+import request.ApiService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import Mill.ChatPanel;
+import mill.ChatPanel;
 
-import Model.MillDTO;
-import Model.Question;
-import Model.R;
+import model.MillDTO;
+import model.Question;
+import model.R;
 
 
 import java.util.ArrayList;

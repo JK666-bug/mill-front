@@ -1,13 +1,13 @@
-package Mill;
+package mill;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.formdev.flatlaf.FlatClientProperties;
-import Model.MillDTO;
+import model.MillDTO;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
-import Util.MethodUtil;
-import Util.PublicUtils;
+import util.MethodUtil;
+import util.PublicUtils;
 
 public class ChatPanel extends JPanel {
     private Integer score = 0;
