@@ -1,4 +1,5 @@
 package Mill;
+
 import Entity.UserCredentials;
 import Storage.TokenStorage;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,16 +9,16 @@ import okhttp3.Call;
 import Request.LocalApiService;
 import util.JsonUtils;
 import util.OkHttpUtils;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Map;
 
 public class login extends JPanel {
-    public login(){
+    public login() {
         init();
     }
+
     void init() {
         setLayout(new MigLayout("fill, wrap 2, insets 20", "[center]", "[center]"));
 
@@ -31,7 +32,6 @@ public class login extends JPanel {
             String passWord2 = String.valueOf(passWord.getPassword());
 
             if (!userName2.isEmpty() && !passWord2.isEmpty()) {
-
                 UserCredentials loginCredentials = new UserCredentials(
                         userName.getText().trim(),
                         String.valueOf(passWord.getPassword())
@@ -42,7 +42,7 @@ public class login extends JPanel {
                         .async(new OkHttpUtils.ICallBack() {
                             @Override
                             public void onSuccessful(Call call, String data) {
-                                // Assume your server returns a JSON object containing the token
+                                // Our server returns a JSON object containing the token
                                 try {
                                     // Parse the response to get the token
                                     ObjectMapper objectMapper = new ObjectMapper();
@@ -66,8 +66,7 @@ public class login extends JPanel {
                                 JOptionPane.showMessageDialog(null, "Login failed: " + errorMsg);
                             }
                         });
-            }
-            else if (userName2.isEmpty()){
+            } else if (userName2.isEmpty()) {
                 JFrame errorFrame = new JFrame("Error");
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 errorFrame.setSize(300, 150);
@@ -79,8 +78,7 @@ public class login extends JPanel {
                 errorFrame.getContentPane().add(closeButton, BorderLayout.SOUTH);
                 errorFrame.setLocationRelativeTo(null);
                 errorFrame.setVisible(true);
-            }
-            else{
+            } else {
                 JFrame errorFrame = new JFrame("Error");
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 errorFrame.setSize(300, 150);
@@ -97,22 +95,20 @@ public class login extends JPanel {
         BackgroundPanel backgroundPanel = new BackgroundPanel();
         backgroundPanel.setLayout(new MigLayout("wrap,insets 38 38 38 38", "fill,240:260"));
         panel = new JPanel(new MigLayout("wrap,insets 38 38 38 38", "fill,240:260"));
-
         passWord.putClientProperty(FlatClientProperties.STYLE, "showRevealButton:true");
         login.putClientProperty(FlatClientProperties.STYLE,
                 "[dark]background:lighten(@background,10%);"
-                );
+        );
 
         userName.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Enter your username or email");
         passWord.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Enter your password");
-
         label = new JLabel("Welcome back!");
         label2 = new JLabel("Please sign in to access your account");
         label.putClientProperty(FlatClientProperties.STYLE, "font:bold +12");
-
         addAll();
         add(backgroundPanel, BorderLayout.WEST);
     }
+
     private void showErrorFrame(String message) {
         // Create a new frame for the error message
         JFrame errorFrame = new JFrame("Login Error");
@@ -133,7 +129,8 @@ public class login extends JPanel {
         errorFrame.add(panel);
         errorFrame.setVisible(true); // Show the error frame
     }
-    private void addAll(){
+
+    private void addAll() {
         panel.add(label);
         panel.add(label2);
         panel.add(new JLabel("Username"));
@@ -145,6 +142,7 @@ public class login extends JPanel {
         panel.add(createSignUpLabel());
         add(panel);
     }
+
     private Component createSignUpLabel() {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         panel.putClientProperty(FlatClientProperties.STYLE, "background:null");
@@ -152,13 +150,14 @@ public class login extends JPanel {
         cmdRegister.setContentAreaFilled(false);
         cmdRegister.setCursor(new Cursor(Cursor.HAND_CURSOR));
         cmdRegister.addActionListener(e -> {
-        new Register();
+            new Register();
         });
         JLabel label = new JLabel("Don't have an account ?");
         panel.add(label);
         panel.add(cmdRegister);
         return panel;
     }
+
     private JTextField userName;
     private JPasswordField passWord;
     private JCheckBox rememberMe;

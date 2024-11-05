@@ -2,15 +2,14 @@ package Mill;
 
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.UIManager;
+
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.formdev.flatlaf.util.UIScale;
 
-public class Main {
+public class Application {
     public static void main(String[] args) {
         try {
             FlatMacDarkLaf.setup();
-            //UIManager.setLookAndFeel(new FlatMacDarkLaf());
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("something wrong");

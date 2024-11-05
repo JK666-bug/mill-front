@@ -3,11 +3,6 @@ package Model;
 import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 
-/**
- * 问题类，包含问题编号、问题、答案、选项A、选项B、选项C、选项D、正确答案
- *
- * @author Soygraffi
- */
 @JsonClassDescription("问题类，包含问题编号、问题、答案、选项A、选项B、选项C、选项D、正确答案")
 public class Question {
     private Integer id;
@@ -21,7 +16,6 @@ public class Question {
 
     public Question() {
     }
-
     public Question(Integer id, String question, String answer, String optionA, String optionB, String optionC, String optionD) {
         this.id = id;
         this.question = question;

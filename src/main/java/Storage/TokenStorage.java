@@ -4,7 +4,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class TokenStorage {
-
     private static final String TOKEN_FILE_PATH = "src/main/resources/Token/token.txt"; // 指定文件路径
 
     // 保存 token 到文件

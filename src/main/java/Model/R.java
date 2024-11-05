@@ -2,24 +2,12 @@ package Model;
 
 import java.io.Serializable;
 
-/**
- * 响应信息主体
- *
- * @author InwardFlow
- */
-
 public class R<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 成功
-     */
     public static final int SUCCESS = 200;
 
-    /**
-     * 失败
-     */
     public static final int FAIL = 500;
 
     private int code;

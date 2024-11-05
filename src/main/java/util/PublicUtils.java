@@ -15,19 +15,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Mill 通用工具类
- *
- * @author InwardFlow
- */
 public class PublicUtils {
 
     // Using a list of map to save the context
     public static List<Map<String, String>> context = new ArrayList<>();
 
-    /**
-     * Empties the context
-     */
     public static void refreshContext() {
         context = new ArrayList<>();
     }

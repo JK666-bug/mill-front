@@ -7,10 +7,8 @@ import net.miginfocom.swing.MigLayout;
 import Request.LocalApiService;
 import util.JsonUtils;
 import util.OkHttpUtils;
-
 import javax.swing.*;
 import java.awt.*;
-
 import static Mill.Leftpanel.panel;
 
 
@@ -105,17 +103,18 @@ public class Register extends JFrame {
         String userName2 = userName.getText().trim();
         String password2 = String.valueOf(passWord.getPassword());
         System.out.println(userName2);
+
         if(checkPassword()&& !userName2.isEmpty()){
-
-        UserCredentials registerCredentials = new UserCredentials(userName2, password2);
-
-        String s = OkHttpUtils.builder()
+            UserCredentials registerCredentials = new UserCredentials(userName2, password2);
+            String s = OkHttpUtils.builder()
                 .url(LocalApiService.HOST + "/mill/register")
                 .post(JsonUtils.toJsonString(registerCredentials)) // 将 credentials 转换为 JSON 字符串
                 .async();
-        System.out.println(JsonUtils.toJsonString(s));
 
-        JFrame successFrame = new JFrame("Successful");
+            System.out.println(JsonUtils.toJsonString(s));
+
+
+            JFrame successFrame = new JFrame("Successful");
         successFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         successFrame.setSize(300, 150);
         JLabel errorLabel = new JLabel("Register account successfully", SwingConstants.CENTER);

@@ -6,6 +6,7 @@ import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
+
 import util.MethodUtil;
 
 public class Leftpanel extends JPanel {
@@ -21,45 +22,44 @@ public class Leftpanel extends JPanel {
     public static JLabel label5;
     public static JLabel labelScore;
 
-    public Leftpanel(){ init();}
+    public Leftpanel() {
+        init();
+    }
 
-    void init(){
+    void init() {
         setLayout(new MigLayout("wrap,fill,insets 15 8 8 8", "[fill,270::]", "[grow 0]0[fill]"));
 
         panel = new JPanel(new MigLayout("wrap,fillx,gapy 3,insets 8 8 8 8", "[fill]"));
 
-        addButtons(); // 添加功能按钮
+        addButtons();
         changeScore("0");
         addScoreList();
     }
+
     private void addButtons() {
         JPanel buttonpanel = new JPanel(new MigLayout("gap 15", "[fill]", "[center]"));
         buttonA = new JButton("VOTE");
-         buttonA.addActionListener(e -> MethodUtil.runWithThread(() -> {
-
-             Chatpanel.showArea.append("If you trust me, you can choose " + getVotedAnswer()+"\n");
-             buttonA.setEnabled(false);
-                }
-
+        buttonA.addActionListener(e -> MethodUtil.runWithThread(() -> {
+            Chatpanel.showArea.append("If you trust me, you can choose " + getVotedAnswer() + "\n");
+            buttonA.setEnabled(false);
+        }
         ));
         buttonA.setFont(new Font("HarmonyOS Sans SC Black", Font.PLAIN, 15));
-
         buttonB = new JButton("CALL");
         buttonB.setFont(new Font("HarmonyOS Sans SC Black", Font.PLAIN, 15));
         buttonB.addActionListener(e -> MethodUtil.runWithThread(() -> {
-            Chatpanel.showArea.append("If you trust me, you can choose " + getVotedAnswer()+"\n");
-            buttonB.setEnabled(false);
-        }
+                    Chatpanel.showArea.append("If you trust me, you can choose " + getVotedAnswer() + "\n");
+                    buttonB.setEnabled(false);
+                }
 
         ));
         buttonC = new JButton("HINT");
         buttonC.addActionListener(e -> MethodUtil.runWithThread(() -> {
-            Chatpanel.showArea.append(getHintAnswer() + " is one of the wrong answers"+"\n");
-            buttonC.setEnabled(false);
+                    Chatpanel.showArea.append(getHintAnswer() + " is one of the wrong answers" + "\n");
+                    buttonC.setEnabled(false);
                 }
         ));
         buttonC.setFont(new Font("HarmonyOS Sans SC Black", Font.PLAIN, 15));
-        // 将按钮添加到面板
         buttonpanel.add(buttonA);
         buttonpanel.add(buttonB);
         buttonpanel.add(buttonC);
@@ -114,10 +114,10 @@ public class Leftpanel extends JPanel {
         number.setForeground(Color.RED);
         ScorePanel.add(labelScore);
         ScorePanel.add(number);
-        add(ScorePanel);
+        add(ScorePanel,"gapy 25");
     }
 
-    private void addScoreList()  {
+    private void addScoreList() {
         JPanel scoreList = new JPanel(new MigLayout("wrap,fill,insets 8 8 8 8"));
         scoreList.putClientProperty(FlatClientProperties.STYLE, "arc:20;" +
                 "[light]background:darken(@background,3%);" +
@@ -146,5 +146,6 @@ public class Leftpanel extends JPanel {
 
         add(scoreList);
     }
+
     public static JPanel panel;
 }

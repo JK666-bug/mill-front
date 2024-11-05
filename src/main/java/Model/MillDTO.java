@@ -1,23 +1,10 @@
 package Model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
-
-/**
- * Result Entity of Mill
- *
- * @author InwardFlow
- */
-
 public class MillDTO {
 
-    /**
-     * the message from AI
-     */
     private String message;
 
-    /**
-     * the current score of user
-     */
     @JsonPropertyDescription("Optional")
     private Question question;
 
@@ -58,7 +45,6 @@ public class MillDTO {
     public void setProgress(Integer progress) {
         this.progress = progress;
     }
-
     @Override
     public String toString() {
         return "MillDTO{" +

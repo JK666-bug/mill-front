@@ -4,118 +4,111 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.formdev.flatlaf.FlatClientProperties;
 import Model.MillDTO;
 import net.miginfocom.swing.MigLayout;
-
 import javax.swing.*;
 import java.awt.*;
-
 import util.MethodUtil;
 import util.PublicUtils;
 
 public class Chatpanel extends JPanel {
     private Integer score = 0;
-
     public static JButton buttonA;
     public static JButton buttonB;
     public static JButton buttonC;
     public static JButton buttonD;
     static boolean init = true;
-
     public static String answer = "A";
-    public Chatpanel(){
-   init();
+    public Chatpanel() {
+        init();
     }
-  void  init(){
-      setOpaque(true);
-      setLayout(new MigLayout("wrap,fill", "[fill,400::]", "[fill][shrink 0,grow 0]"));
-      putClientProperty(FlatClientProperties.STYLE, "background:$Chat.background");
-      panelBottom = new JPanel(new BorderLayout());
 
-      JPanel buttonPanel = new JPanel(new FlowLayout());
-      // 创建按钮面板
-      JButton btnEndGame = new JButton("START");
-      btnEndGame.addActionListener(e -> {
-          if ("START".equals(btnEndGame.getText())) {
-              initAll();
-              PublicUtils.refreshContext();
-              btnEndGame.setText("END");
+    void init() {
+        setOpaque(true);
+        setLayout(new MigLayout("wrap,fill", "[fill,400::]", "[fill][shrink 0,grow 0]"));
+        putClientProperty(FlatClientProperties.STYLE, "background:$Chat.background");
+        panelBottom = new JPanel(new BorderLayout());
 
-              Leftpanel.buttonA.setEnabled(true);
-              Leftpanel.buttonB.setEnabled(true);
-              Leftpanel.buttonC.setEnabled(true);
-              sendChoice("I want to play Who Wants To Be A Millionaire! You should ask me 5 different questions partly. Now let's start!\n");
+        JPanel buttonPanel = new JPanel(new FlowLayout());
+        // create button panel
+        JButton btnEndGame = new JButton("START");
+        btnEndGame.addActionListener(e -> {
+            if ("START".equals(btnEndGame.getText())) {
+                initAll();
+                PublicUtils.refreshContext();
+                btnEndGame.setText("END");
 
-          } else {
-              Chatpanel.showArea.append("Congratulations! You got " + calculateDollars(score) + " dollars!\n");
-              btnEndGame.setText("START");
-              buttonDisable();
-              Leftpanel.buttonA.setEnabled(false);
-              Leftpanel.buttonB.setEnabled(false);
-              Leftpanel.buttonC.setEnabled(false);
-          }
-      });
+                Leftpanel.buttonA.setEnabled(true);
+                Leftpanel.buttonB.setEnabled(true);
+                Leftpanel.buttonC.setEnabled(true);
+                sendChoice("I want to play Who Wants To Be A Millionaire! You should ask me 5 different questions partly. Now let's start!\n");
 
-      btnEndGame.setFont(new Font("Serif", Font.PLAIN, 15));
-      buttonA = new JButton("A");
-      buttonA.setFont(new Font("Serif", Font.PLAIN, 15));
-      buttonA.addActionListener(e -> {
-          buttonDisable();
-          sendChoice("I choose A");
-      });
+            } else {
+                Chatpanel.showArea.append("Congratulations! You got " + calculateDollars(score) + " dollars!\n");
+                btnEndGame.setText("START");
+                buttonDisable();
+                Leftpanel.buttonA.setEnabled(false);
+                Leftpanel.buttonB.setEnabled(false);
+                Leftpanel.buttonC.setEnabled(false);
+            }
+        });
 
-      buttonB = new JButton("B");
-      buttonB.setFont(new Font("Serif", Font.PLAIN, 15));
-      buttonB.addActionListener(e -> {
-          buttonDisable();
-          sendChoice("I choose B");
-      });
+        btnEndGame.setFont(new Font("Serif", Font.PLAIN, 15));
+        buttonA = new JButton("A");
+        buttonA.setFont(new Font("Serif", Font.PLAIN, 15));
+        buttonA.addActionListener(e -> {
+            buttonDisable();
+            sendChoice("I choose A");
+        });
 
-      buttonC = new JButton("C");
-      buttonC.setFont(new Font("Serif", Font.PLAIN, 15));
-      buttonC.addActionListener(e -> {
-          buttonDisable();
-          sendChoice("I choose C");
-      });
+        buttonB = new JButton("B");
+        buttonB.setFont(new Font("Serif", Font.PLAIN, 15));
+        buttonB.addActionListener(e -> {
+            buttonDisable();
+            sendChoice("I choose B");
+        });
 
-      buttonD = new JButton("D");
-      buttonD.setFont(new Font("Serif", Font.PLAIN, 15));
-      buttonD.addActionListener(e -> {
-          buttonDisable();
-          sendChoice("I choose D");
+        buttonC = new JButton("C");
+        buttonC.setFont(new Font("Serif", Font.PLAIN, 15));
+        buttonC.addActionListener(e -> {
+            buttonDisable();
+            sendChoice("I choose C");
+        });
 
-      });
+        buttonD = new JButton("D");
+        buttonD.setFont(new Font("Serif", Font.PLAIN, 15));
+        buttonD.addActionListener(e -> {
+            buttonDisable();
+            sendChoice("I choose D");
 
-      btnEndGame.setPreferredSize(new Dimension(90, 30));
-      buttonA.setPreferredSize(new Dimension(90, 30));
-      buttonB.setPreferredSize(new Dimension(90, 30));
-      buttonC.setPreferredSize(new Dimension(90, 30));
-      buttonD.setPreferredSize(new Dimension(90, 30));
-      // 将按钮添加到按钮面板
-      buttonPanel.add(btnEndGame);
-      buttonPanel.add(buttonA);
-      buttonPanel.add(buttonB);
-      buttonPanel.add(buttonC);
-      buttonPanel.add(buttonD);
+        });
 
-      // 添加按钮面板到 panelBottom 的顶部
-      panelBottom.add(buttonPanel, BorderLayout.NORTH);
+        btnEndGame.setPreferredSize(new Dimension(90, 30));
+        buttonA.setPreferredSize(new Dimension(90, 30));
+        buttonB.setPreferredSize(new Dimension(90, 30));
+        buttonC.setPreferredSize(new Dimension(90, 30));
+        buttonD.setPreferredSize(new Dimension(90, 30));
+        // put buttons into buttonPanel
+        buttonPanel.add(btnEndGame);
+        buttonPanel.add(buttonA);
+        buttonPanel.add(buttonB);
+        buttonPanel.add(buttonC);
+        buttonPanel.add(buttonD);
 
-      panelBottom.putClientProperty(FlatClientProperties.STYLE,
-              "background:$Chat.background");
+        // add buttonPanel to the bottom of panelBottom
+        panelBottom.add(buttonPanel, BorderLayout.NORTH);
+        panelBottom.putClientProperty(FlatClientProperties.STYLE, "background:$Chat.background");
+        add(panelBottom, "cell 0 1, grow");
+        panelBottom.revalidate();
+        panelBottom.repaint();
+        buttonDisable();
 
-      add(panelBottom, "cell 0 1, grow");
-
-      panelBottom.revalidate();
-      panelBottom.repaint();
-      buttonDisable();
-
-      showArea = new JTextArea(12, 34);
-      //创建一个JScrollPane滚动面板组件，将JTextArea文本框作为显示组件
-      scrollPane = new JScrollPane(showArea);
-      showArea.setEditable(false);
-      showArea.setFont(new Font("Arial", Font.PLAIN, 16));
-      showArea.setCaretPosition(showArea.getDocument().getLength());
-      add(scrollPane,"cell 0 0, grow");
+        showArea = new JTextArea(12, 34);
+        scrollPane = new JScrollPane(showArea);
+        showArea.setEditable(false);
+        showArea.setFont(new Font("Arial", Font.PLAIN, 16));
+        showArea.setCaretPosition(showArea.getDocument().getLength());
+        add(scrollPane, "cell 0 0, grow");
     }
+
     private void initAll() {
         init = true;
         Leftpanel.buttonA.setVisible(true);
@@ -130,6 +123,7 @@ public class Chatpanel extends JPanel {
         Leftpanel.label5.setForeground(Color.white);
         showArea.setText("Please click button to start\n");
     }
+
     public void buttonDisable() {
         buttonA.setEnabled(false);
         buttonB.setEnabled(false);
@@ -143,6 +137,7 @@ public class Chatpanel extends JPanel {
         buttonC.setEnabled(true);
         buttonD.setEnabled(true);
     }
+
     public Integer calculateDollars(Integer score) {
         int money = 0;
         switch (score) {
@@ -177,10 +172,10 @@ public class Chatpanel extends JPanel {
             sendChoiceHandler(dto);
             buttonEnable();
             Leftpanel.number.setText(dto.getProgress().toString());
-            if(dto.getQuestion()!=null) {
+            if (dto.getQuestion() != null) {
                 System.out.println(dto.getQuestion().getAnswer());
             }
-            if (dto.getQuestion()!=null) {
+            if (dto.getQuestion() != null) {
                 answer = dto.getQuestion().getAnswer();
             }
 
@@ -217,6 +212,7 @@ public class Chatpanel extends JPanel {
         });
 
     }
+
     public void sendChoiceHandler(MillDTO dto) {
         // 加减分逻辑
         score = dto.getProgress();
@@ -225,8 +221,8 @@ public class Chatpanel extends JPanel {
     }
 
     private JPanel panelBottom;
-public static JTextArea showArea;
-public static JScrollPane scrollPane;
+    public static JTextArea showArea;
+    public static JScrollPane scrollPane;
 
 }
 
