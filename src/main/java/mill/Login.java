@@ -37,7 +37,7 @@ public class Login extends JPanel {
         login.addActionListener(e -> {
             String userName2 = userName.getText().trim();
             String passWord2 = String.valueOf(passWord.getPassword());
-
+            new GameFrame();
             if (!userName2.isEmpty() && !passWord2.isEmpty()) {
                 UserCredentials loginCredentials = new UserCredentials(
                         userName.getText().trim(),
@@ -49,6 +49,7 @@ public class Login extends JPanel {
                         .async(new OkHttpUtils.ICallBack() {
                             @Override
                             public void onSuccessful(Call call, String data) {
+
                                 // Our server returns a JSON object containing the token
                                 try {
                                     // Parse the response to get the token
@@ -57,7 +58,7 @@ public class Login extends JPanel {
                                     String token = (String) responseMap.get("token"); // Adjust the key as per your API response
 
 //                                    afterLogin();
-                                    new GameFrame();
+
                                     // Save the token
                                     TokenStorage.setToken(token);
 

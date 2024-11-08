@@ -16,6 +16,7 @@ public class ChatPanel extends JPanel {
     public static JButton buttonC;
     public static JButton buttonD;
     static boolean init = true;
+    public static boolean END = true;
     public static String answer = "A";
     public ChatPanel() {
         init();
@@ -32,16 +33,17 @@ public class ChatPanel extends JPanel {
         JButton btnEndGame = new JButton("START");
         btnEndGame.addActionListener(e -> {
             if ("START".equals(btnEndGame.getText())) {
+                END = true;
                 initAll();
                 PublicUtils.refreshContext();
                 btnEndGame.setText("END");
-
                 LeftPanel.buttonA.setEnabled(true);
                 LeftPanel.buttonB.setEnabled(true);
                 LeftPanel.buttonC.setEnabled(true);
                 sendChoice("I want to play Who Wants To Be A Millionaire! You should ask me 5 different questions partly. Now let's start!\n");
 
             } else {
+                END= false;
                 ChatPanel.showArea.append("Congratulations! You got " + calculateDollars(score) + " dollars!\n");
                 btnEndGame.setText("START");
                 buttonDisable();
@@ -78,6 +80,7 @@ public class ChatPanel extends JPanel {
         buttonD.addActionListener(e -> {
             buttonDisable();
             sendChoice("I choose D");
+
         });
 
         btnEndGame.setPreferredSize(new Dimension(90, 30));

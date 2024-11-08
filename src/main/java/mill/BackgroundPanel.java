@@ -16,7 +16,7 @@ public class BackgroundPanel extends JPanel {
             if (imageUrl != null) {
                 backgroundImage = ImageIO.read(imageUrl);
             } else {
-                System.err.println("无法找到背景图片资源！");
+                System.err.println("Can not find the picture resource");
             }
         } catch (IOException e) {
             e.printStackTrace();
