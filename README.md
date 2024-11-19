@@ -106,7 +106,7 @@ Xiangqian Ye (Student ID: 24262556)
 - Collected data (Question Bank) about "Who Wants To Be A Millionaire"
 - Connected chatbot with "Question Bank"
 
-Kai Jang (Student ID: 24261889)
+Kai Jiang (Student ID: 24261889)
 
 - Integrated with backend
 - GUI frontend development
