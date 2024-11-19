@@ -7,12 +7,17 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Background Panel
+ *
+ * @author JK
+ */
 public class BackgroundPanel extends JPanel {
     private BufferedImage backgroundImage;
 
     public BackgroundPanel() {
         try {
-            URL imageUrl = getClass().getClassLoader().getResource("PIC/backgroud.png");
+            URL imageUrl = getClass().getClassLoader().getResource("image/background.png");
             if (imageUrl != null) {
                 backgroundImage = ImageIO.read(imageUrl);
             } else {

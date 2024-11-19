@@ -3,8 +3,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Token Storage Manager
+ *
+ * @author JK
+ */
 public class TokenStorage {
-    private static final String TOKEN_FILE_PATH = "src/main/resources/Token/token.txt"; // 指定文件路径
+    private static final String TOKEN_FILE_PATH = "src/main/resources/config/.tmp"; // 指定文件路径
 
     // 保存 token 到文件
     public static void setToken(String token) {

@@ -1,21 +1,26 @@
 package net.heimeng.mill;
 
-import net.heimeng.entity.UserCredentials;
-import net.heimeng.request.ApiService;
-import net.heimeng.storage.TokenStorage;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.formdev.flatlaf.FlatClientProperties;
+import net.heimeng.entity.UserCredentials;
+import net.heimeng.model.LoginVO;
+import net.heimeng.model.R;
+import net.heimeng.request.ApiService;
+import net.heimeng.storage.TokenStorage;
+import net.heimeng.util.OkHttpUtils;
 import net.miginfocom.swing.MigLayout;
 import okhttp3.Call;
-import net.heimeng.util.JsonUtils;
-import net.heimeng.util.OkHttpUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.util.Map;
 
+/**
+ * Login Panel
+ *
+ * @author JK
+ */
 public class Login extends JPanel {
     private JFrame frame;
     public Login(JFrame frame) {
@@ -45,7 +50,9 @@ public class Login extends JPanel {
                 );
                 OkHttpUtils.builder()
                         .url(ApiService.HOST + "/mill/login") // Ensure this URL is correct
-                        .post(JsonUtils.toJsonString(loginCredentials))
+                        .addParam("username", loginCredentials.getUsername())
+                        .addParam("password", loginCredentials.getPassword())
+                        .post(false)
                         .async(new OkHttpUtils.ICallBack() {
                             @Override
                             public void onSuccessful(Call call, String data) {
@@ -54,8 +61,8 @@ public class Login extends JPanel {
                                 try {
                                     // Parse the response to get the token
                                     ObjectMapper objectMapper = new ObjectMapper();
-                                    Map<String, Object> responseMap = objectMapper.readValue(data, new TypeReference<>() {});
-                                    String token = (String) responseMap.get("token"); // Adjust the key as per your API response
+                                    R<LoginVO> response = objectMapper.readValue(data, new TypeReference<>() {});
+                                    String token = response.getData().getToken();
 
 //                                    afterLogin();
 
