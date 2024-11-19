@@ -1,18 +1,18 @@
 # Who Wants To Be A Millionaire
 
-## Project Profile
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://gitee.com/dromara/RuoYi-Vue-Plus/blob/master/LICENSE) ![使用IntelliJ IDEA开发维护](https://img.shields.io/badge/IntelliJ%20IDEA-提供支持-blue.svg)
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://gitee.com/dromara/RuoYi-Vue-Plus/blob/master/LICENSE)![使用IntelliJ IDEA开发维护](https://img.shields.io/badge/IntelliJ%20IDEA-提供支持-blue.svg)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-blue.svg)]()[![JDK-17](https://img.shields.io/badge/JDK-11-green.svg)]()[![JDK-21](https://img.shields.io/badge/JDK-21-green.svg)]()
 
-"Who Wants To Be A Millionaire?" is a is a popular television game show. This project imitates the TV show, with the intention of spreading knowledge by setting up the quiz game where players answer questions to win virtual money, using our project's Java Swing GUI and Apache Derby database for an interactive, educational experience.
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-blue.svg)]() [![JDK-11](https://img.shields.io/badge/JDK-11-green.svg)]() [![JDK-17](https://img.shields.io/badge/JDK-17-green.svg)]() [![JDK-21](https://img.shields.io/badge/JDK-21-green.svg)]()
+
+"Who Wants To Be A Millionaire?" is a popular television game show. This project imitates the TV show, with the intention of spreading knowledge by setting up the quiz game where players answer questions to win virtual money, using our project's Java Swing GUI and Apache Derby database for an interactive, educational experience.
 
 - [Backend Repository](https://github.com/inwardflow/mill)
 - [Frontend GUI Repository](https://github.com/JK666-BUG/mill-front)
 
 > [!Note]
 >
-> To avoid installation errors, you can directly download our [JAR package](https://github.com/JK666-bug/mill-front/releases/tag/v1.0.0-RC1) directly.
+> To avoid installation errors, you can download our [JAR package](https://github.com/JK666-bug/mill-front/releases/tag/v1.0.0-RC1) directly.
 
 ```shell
 java -jar .\Millionaire-1.0-RC1.jar
@@ -129,5 +129,7 @@ Qingyi Zhou (Student ID: 24259712)
 
 * [JFormDesigner / FlatLaf](https://github.com/JFormDesigner/FlatLaf)
 * [Dromara / RuoYi-Vue-Plus](https://github.com/dromara/RuoYi-Vue-Plus)
+
+* [Spring-Projects / Spring-AI](https://github.com/spring-projects/spring-ai)
 
 * [DJ-Raven / Swing-Modal-Dialog](https://github.com/DJ-Raven/swing-modal-dialog)
