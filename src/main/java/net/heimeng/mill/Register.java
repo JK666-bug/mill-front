@@ -1,17 +1,17 @@
-package mill;
+package net.heimeng.mill;
 
-import entity.UserCredentials;
-import request.ApiService;
+import net.heimeng.entity.UserCredentials;
+import net.heimeng.request.ApiService;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.util.UIScale;
 import net.miginfocom.swing.MigLayout;
-import util.JsonUtils;
-import util.OkHttpUtils;
+import net.heimeng.util.JsonUtils;
+import net.heimeng.util.OkHttpUtils;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static mill.LeftPanel.panel;
+import static net.heimeng.mill.LeftPanel.panel;
 
 public class Register extends JFrame {
     public Register() {

@@ -1,7 +1,9 @@
+package net.heimeng;
+
 import javax.swing.*;
 import java.awt.*;
 
-import mill.Login;
+import net.heimeng.mill.Login;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.formdev.flatlaf.util.UIScale;
 

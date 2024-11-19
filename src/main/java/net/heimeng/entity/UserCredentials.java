@@ -1,4 +1,4 @@
-package entity;
+package net.heimeng.entity;
 
 public class UserCredentials {
     private String username;

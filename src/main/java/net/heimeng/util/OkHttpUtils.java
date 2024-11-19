@@ -1,4 +1,4 @@
-package util;
+package net.heimeng.util;
 
 import okhttp3.*;
 
@@ -121,7 +121,7 @@ public class OkHttpUtils {
 
     public String sync() {
          if (request == null) {
-        throw new IllegalStateException("request has not been built. Call get() or post() first.");
+        throw new IllegalStateException("net.heimeng.request has not been built. Call get() or post() first.");
     }
 
         setHeader(request);

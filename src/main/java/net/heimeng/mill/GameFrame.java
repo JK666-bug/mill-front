@@ -1,4 +1,4 @@
-package mill;
+package net.heimeng.mill;
 
 import com.formdev.flatlaf.util.UIScale;
 

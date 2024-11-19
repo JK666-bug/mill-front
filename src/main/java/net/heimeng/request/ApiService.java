@@ -1,4 +1,4 @@
-package request;
+package net.heimeng.request;
 
 public class ApiService {
     public static final String DEV_HOST = "http://localhost:8080";

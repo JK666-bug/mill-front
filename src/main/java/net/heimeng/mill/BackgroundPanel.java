@@ -1,4 +1,4 @@
-package mill;
+package net.heimeng.mill;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

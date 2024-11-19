@@ -1,15 +1,15 @@
-package mill;
+package net.heimeng.mill;
 
-import entity.UserCredentials;
-import request.ApiService;
-import storage.TokenStorage;
+import net.heimeng.entity.UserCredentials;
+import net.heimeng.request.ApiService;
+import net.heimeng.storage.TokenStorage;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.formdev.flatlaf.FlatClientProperties;
 import net.miginfocom.swing.MigLayout;
 import okhttp3.Call;
-import util.JsonUtils;
-import util.OkHttpUtils;
+import net.heimeng.util.JsonUtils;
+import net.heimeng.util.OkHttpUtils;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package model;
+package net.heimeng.model;
 
 import java.io.Serializable;
 
