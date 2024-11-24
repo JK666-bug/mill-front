@@ -17,6 +17,7 @@
 ```shell
 java -jar .\Millionaire-1.0-RC1.jar
 ```
+![Uploading 屏幕截图 2024-11-24 203543.png…]()
 
 ## Introduction
 
