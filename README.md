@@ -19,118 +19,180 @@
 java -jar .\Millionaire-1.0-RC1.jar
 ```
 
-## Introduction
+# *PDC Project Details*
 
-### User Interface (GUI Snapshots)
 
-#### Login & Registration
 
-Players can register and log in on this page.
+## User Interface(GUI)
 
-![Login Registration Interface](C:\Users\DELL\Documents\WeChat%20Files\wxid_4n5umre8ny5622\FileStorage\Temp\51c4eaa1fb5d2a00e5c3df6d50dfd91.png)
+<u>**Clear and well-designed graphical user interface following common standards:**</u>
 
-This is the registration form.
 
-![Registration Form](C:\Users\DELL\Documents\WeChat%20Files\wxid_4n5umre8ny5622\FileStorage\Temp\e1bf854ffbc9707be63d6463467c71f.png)
 
-![User Interface](C:\Users\DELL\Documents\WeChat%20Files\wxid_4n5umre8ny5622\FileStorage\Temp\611c31f21527fe6b42acebc53e32462.png)
+Login page
 
-### Database (20 minutes)
+![image-20241124205438146](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124205438146.png)
 
-#### Question Database
+Register page
 
-![Question Database](file:///C:/Users/DELL/Pictures/Typedown/fb0b09a8-4279-4f4f-ae5c-1b34a0a3f119.png)
+![image-20241124205219648](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124205219648.png)
 
-#### Database Manager
+We designed a beautiful game cover and a clear and concise GUI interface to meet the standards of simplicity, consistency, accessibility and so on.
 
-![Database Manager](file:///C:/Users/DELL/Pictures/Typedown/6f3aad9b-d9db-4df6-86bf-b437b57d8bc9.png)
+#### 
 
-#### Database Interactions
+<u>**The interface is easy for users to interact with:**</u>
 
-#### Operations on the Question Table
+game page
 
-![Operations on Question Table](file:///C:/Users/DELL/Pictures/Typedown/e8624acf-15b6-4583-ae62-3c9c4ba3a95b.png)
+![image-20241124212600308](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124212600308.png)
 
-#### Operations on the User Table
+We have clearly divided the interface into several sections (score, function, dialog, interactive button, score and dollar for progress). Each round of the game, the red score and the yellow progress are changed. In addition, we set the enable logic for button to ensure that the user chooses the button according to the correct game logic.
 
-![Operations on User Table](file:///C:/Users/DELL/Pictures/Typedown/168a2789-e425-4af4-a72f-73284058559c.png)
 
-## Login
 
-![Login Interface](file:///C:/Users/DELL/Pictures/Typedown/99fc1b96-76f7-4cc6-9efd-d92d8f1e52d2.png)
+## Database
 
-![Login Verification](file:///C:/Users/DELL/Pictures/Typedown/eceec8f1-8772-4d90-bda0-d830a82693d3.png)
+<u>**The program contains a database element**:</u>
 
-## Software Functionality and Usability (30 minutes)
+![Database Manager](C:\Users\86177\Desktop\PDC截图\Database Manager.png)
 
-The program runs perfectly.
+We created a DerbyManager class to manage our database.
 
-![Program in Action](file:///C:/Users/DELL/Pictures/Typedown/be265423-989d-42ff-ab40-43d61a42fb99.png)
 
-## Software Design & Implementation (30 minutes)
 
-### GitHub Version Control
+<u>**Can achieve database interactions(input and output) and operations in the program**</u>:
 
-#### Frontend
+![Operations on the Question Table](C:\Users\86177\Desktop\PDC截图\Operations on the Question Table.png)
 
-[Commits · JK666-bug/mill-ui (github.com)](https://github.com/JK666-bug/mill-ui/commits/main/)
+![Operations on the User Table](C:\Users\86177\Desktop\PDC截图\Operations on the User Table.png)
 
-![Frontend Commits](C:\Users\DELL\Documents\WeChat%20Files\wxid_4n5umre8ny5622\FileStorage\Temp\ac79d493-99a0-41f1-aa3a-c2090d908117.png)
+They are operations on the question table and operations on the user table. We realized the basic operation of database such as inserting and deleting user information and inserting questions
 
-[JK666-bug/mill-front · GitHub](https://github.com/JK666-BUG/mill-front)
 
-![Frontend Project](C:\Users\DELL\Documents\WeChat%20Files\wxid_4n5umre8ny5622\FileStorage\Temp\4a12887eb028f09ddb1edb1a5a029d4.png)
 
-#### Backend
+## Software Functionality and Usability
 
-[Commits · inwardflow/mill (github.com)](https://github.com/inwardflow/mill/commits/master/)
+<u>The program is easy to compile and run without any manual configurations</u>
 
-![Backend Commits](file:///C:/Users/DELL/Pictures/Typedown/92520719-e1cf-4954-95a4-f3d65e8a9eba.png)
+Since we use a cloud-based server, we use jar packages on the back end to facilitate compilation.
 
-![Backend Project](file:///C:/Users/DELL/Pictures/Typedown/ff2362d8-e49c-4a84-90d0-3c45ed431d6a.png)
 
-### Unit Testing (10 minutes)
 
-#### User Table Operation Test
+<u>The users interact with the program without any errors:</u>
 
-![User Table Test](file:///C:/Users/DELL/Pictures/Typedown/abd5b123-712f-414d-b9b6-3d9c57500d14.png)
+We use a try-catch method to log error, and we also use a prompt box to interact with the user when an error message occurs, such as when the user does not enter a password
 
-#### Question Table Operation Test
+![image-20241124220824607](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124220824607.png)
 
-![Question Table Test](file:///C:/Users/DELL/Pictures/Typedown/5cfe92d0-de5d-4180-b638-6d5ee278d64c.png)
 
-## Contributors
 
-Xiangqian Ye (Student ID: 24262556)
+<u>The complexity of the functionalit:</u>
 
-- Integrated with Apache Derby Database
-- Collected data (Question Bank) about "Who Wants To Be A Millionaire"
-- Connected chatbot with "Question Bank"
+Our games interact directly with the AI, and in each round of the game, the user can choose the corresponding answer or the corresponding help function. Our AI can use the context to return the data we need to keep the game going. Our game features meet the requirements of the game, meet the complexity of the function
 
-Kai Jiang (Student ID: 24261889)
 
-- Integrated with backend
-- GUI frontend development
-- Tested the frontend application
 
-Hang Peng (Student ID: 24259970)
+## Software Design& Implementation
 
-- Wrote JUnit tests
-- Integrated Apache Derby Database
+<u>The program can be compiled successfully</u>
 
-Qingyi Zhou (Student ID: 24259712)
+![the program can run perfectly](C:\Users\86177\Desktop\PDC截图\the program can run perfectly.png)
 
-- Collated and analyzed requirements
-- GUI frontend development
-- Drew the wireframe preliminary
+<u>The purpose of the code is easy to understand by reading it</u>
 
----
+We are satisfied with: 
 
-😊 The code in this repository is inspired by the following open-source projects. Thanks to the work of these open-source projects.
+clear naming: variables, functions, classes, etc., have descriptive and easy-to-understand names.
+Well-structured: Code is organized into logical blocks that are easy to follow, usually following some kind of programming paradigm or design pattern.
+Follow best practices: The code follows widely accepted programming best practices, such as avoiding magic numbers, using meaningful constants, and keeping functions short and focused on a single purpose.
+Consistency: The code is consistent in style, naming, and structure, which makes it easier to read and understand.
 
-* [JFormDesigner / FlatLaf](https://github.com/JFormDesigner/FlatLaf)
-* [Dromara / RuoYi-Vue-Plus](https://github.com/dromara/RuoYi-Vue-Plus)
+<u>The comments in the code are useful and appropriate</u>
 
-* [Spring-Projects / Spring-AI](https://github.com/spring-projects/spring-ai)
 
-* [DJ-Raven / Swing-Modal-Dialog](https://github.com/DJ-Raven/swing-modal-dialog)
+
+<u>The code executes without runtime errors</u>
+
+
+
+<u>The Git/GitHub version control is applied</u>
+
+![image-20241124221756843](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124221756843.png)
+
+![image-20241124221810000](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124221810000.png)
+
+We use git tools on github and use a team approach to develop projects
+
+
+
+<u>Design patterns are implemented correctly where appropriate</u>
+
+We used the MVC design pattern:
+Model: Responsible for encapsulating the data and processing the data. It does not depend on the View and Controller, that is, it does not care how the data will be displayed or manipulated. Our model is capable of processing user interaction data and information
+
+View: Responsible for data display. It generally does not have procedural logic, but rather retrieves data from the Model to display to the user. Our GUI section shows the view section
+
+Controller: Acts as an organization between the different layers to control the flow of the application. It processes and responds to events, including user behavior and changes on the Model. We defined a number of interactions before and after button event users.
+
+<u>A good coding style is used, following appropriate coding standards</u>:
+
+![image-20241124221634756](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124221634756.png)
+
+Our code conforms to design specifications and is easy to read.
+
+<u>The code design follows OO design good practice</u>
+
+Our code uses object-oriented principles such as encapsulation inheritance polymorphic abstraction.
+
+## Unit Testing
+
+**<u>At least FIVE test cases are included</u>**
+
+![Question Table Operation Test](C:\Users\86177\Desktop\PDC截图\Question Table Operation Test.png)
+
+
+
+We passed a variety of tests.
+
+
+
+**<u>The tests are well written</u>**
+
+![image-20241124220008955](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124220008955.png)
+
+Each test section conforms to the test writing specification.
+
+
+
+**<u>The tests cover important functionality well</u>**
+
+![User Table Operation Test](C:\Users\86177\Desktop\PDC截图\User Table Operation Test.png)
+
+We passed the user registration, add, delete test, which is the most important basic function of the user login and registration.
+
+**<u>The tests are well-named</u>**
+
+![image-20241124215920105](C:\Users\86177\AppData\Roaming\Typora\typora-user-images\image-20241124215920105.png)
+
+From the image above, we can see that tests have clear, descriptive, and easy-to-understand names. For example, we have "Add User Test" which directly expresses the specific aspects of the test.
+
+
+
+## Contribution
+
+Hang Peng (StudentID 24259970): Write JUnit tests,Apache Derby Database
+
+
+
+Xiangqian Ye (StudentID 24262556):Integrate with Apache Derby Database,Collect datas (Question Bank) about `Who Wants To Be A Millionaire`,Connect chat bot with `Question Bank`
+
+
+
+Kai Jang(StudentID 24261889) : Integrate with back-end,GUI frontend development,Test
+
+
+
+Qingyi Zhou (StudentID 24259712) : Collate and analyze needs,GUI frontend development,draw the wireframe preliminary
+
+
