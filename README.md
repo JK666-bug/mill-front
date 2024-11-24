@@ -24,7 +24,7 @@ java -jar .\Millionaire-1.0-RC1.jar
 ### User Interface (GUI Snapshots)
 
 #### Login & Registration
-
+![屏幕截图 2024-11-24 203543](C:\Users\86177\Desktop\picture\屏幕截图 2024-11-24 203543.png)
 Players can register and log in on this page.
 
 ![Login Registration Interface](C:\Users\DELL\Documents\WeChat%20Files\wxid_4n5umre8ny5622\FileStorage\Temp\51c4eaa1fb5d2a00e5c3df6d50dfd91.png)
