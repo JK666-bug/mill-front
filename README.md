@@ -14,10 +14,14 @@
 >
 > To avoid installation errors, you can download our [JAR package](https://github.com/JK666-bug/mill-front/releases/tag/v1.0.0-RC1) directly.
 
-```shell
+```shell![屏幕截图 2024-11-24 203543](https://github.com/user-attachments/assets/549ef4d6-8e61-439c-96f5-6d1b74c4dc40)
+
 java -jar .\Millionaire-1.0-RC1.jar
 ```
-![屏幕截图 2024-11-24 203543](https://github.com/user-attachments/assets/9978aa57-2b74-49a1-af30-9c634085cb67)
+
+![屏幕截图 2024-11-24 203543](https://github.com/user-attachments/assets/f683cac5-049b-4bf8-a09a-ad2b8ac745d1)
+![屏幕截图 2024-11-24 203543](https://github.com/user-attachments/assets/462d6f3d-d902-4c3d-bb2d-176fd9cfea27)
+
 
 
 ## Introduction
