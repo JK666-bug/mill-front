@@ -19,11 +19,6 @@
 java -jar .\Millionaire-1.0-RC1.jar
 ```
 
-![屏幕截图 2024-11-24 203543](https://github.com/user-attachments/assets/f683cac5-049b-4bf8-a09a-ad2b8ac745d1)
-![屏幕截图 2024-11-24 203543](https://github.com/user-attachments/assets/462d6f3d-d902-4c3d-bb2d-176fd9cfea27)
-
-
-
 ## Introduction
 
 ### User Interface (GUI Snapshots)
