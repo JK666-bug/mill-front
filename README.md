@@ -23,7 +23,7 @@ java -jar .\Millionaire-1.0-RC1.jar
 
 
 
-## User Interface(GUI)
+## User Interface(GUI) (10 mark)
 
 <u>**Clear and well-designed graphical user interface following common standards:**</u>
 
@@ -54,7 +54,7 @@ We have clearly divided the interface into several sections (score, function, di
 
 
 
-## Database
+## Database (20 mark)
 
 <u>**The program contains a database element**:</u>
 
@@ -77,7 +77,7 @@ They are operations on the question table and operations on the user table. We r
 
 
 
-## Software Functionality and Usability
+## Software Functionality and Usability (30 mark)
 
 <u>The program is easy to compile and run without any manual configurations</u>
 
@@ -100,7 +100,7 @@ Our games interact directly with the AI, and in each round of the game, the user
 
 
 
-## Software Design& Implementation
+## Software Design& Implementation (30 mark)
 
 <u>The program can be compiled successfully</u>
 
@@ -157,7 +157,7 @@ Our code conforms to design specifications and is easy to read.
 
 Our code uses object-oriented principles such as encapsulation inheritance polymorphic abstraction.
 
-## Unit Testing
+## Unit Testing (10 mark)
 
 **<u>At least FIVE test cases are included</u>**
 
@@ -209,5 +209,12 @@ Kai Jang(StudentID 24261889) : Integrate with back-end, GUI frontend development
 
 
 Qingyi Zhou (StudentID 24259712) : Collate and analyze needs,GUI frontend development,draw the wireframe preliminary
+
+
+😊 The code in this repository is inspired by the following open-source projects. Thanks to the work of these open-source projects.
+* [JFormDesigner / FlatLaf](https://github.com/JFormDesigner/FlatLaf)
+* [Dromara / RuoYi-Vue-Plus](https://github.com/dromara/RuoYi-Vue-Plus)
+* [Spring-Projects / Spring-AI](https://github.com/spring-projects/spring-ai)
+* [DJ-Raven / Swing-Modal-Dialog](https://github.com/DJ-Raven/swing-modal-dialog)
 
 
