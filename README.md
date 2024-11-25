@@ -196,15 +196,15 @@ From the image above, we can see that tests have clear, descriptive, and easy-to
 
 ## Contribution
 
-Hang Peng (StudentID 24259970): Write JUnit tests,Apache Derby Database
+Hang Peng (StudentID 24259970): Write JUnit tests, Apache Derby Database
 
 
 
-Xiangqian Ye (StudentID 24262556):Integrate with Apache Derby Database,Collect datas (Question Bank) about `Who Wants To Be A Millionaire`,Connect chat bot with `Question Bank`
+Xiangqian Ye (StudentID 24262556):Integrate with Apache Derby Database, Collect datas (Question Bank) about `Who Wants To Be A Millionaire, Connect chat bot with `Question Bank`
 
 
 
-Kai Jang(StudentID 24261889) : Integrate with back-end,GUI frontend development,Test
+Kai Jang(StudentID 24261889) : Integrate with back-end, GUI frontend development,Test
 
 
 
