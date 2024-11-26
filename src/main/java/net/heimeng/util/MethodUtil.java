@@ -1,7 +1,7 @@
-package util;
+package net.heimeng.util;
 
 /**
- * Method util
+ * Method net.heimeng.util
  *
  * @author JK
  */

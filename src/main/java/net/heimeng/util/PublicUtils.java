@@ -1,14 +1,14 @@
-package util;
+package net.heimeng.util;
 
-import request.ApiService;
+import net.heimeng.request.ApiService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 
-import mill.ChatPanel;
+import net.heimeng.mill.ChatPanel;
 
-import model.MillDTO;
-import model.Question;
-import model.R;
+import net.heimeng.model.MillDTO;
+import net.heimeng.model.Question;
+import net.heimeng.model.R;
 
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class PublicUtils {
         // 将用户发送消息显示在屏幕上
         MethodUtil.runWithThread(() -> ChatPanel.showArea.append(request + "\n\n"));
 
-        // Send request and get response
+        // Send net.heimeng.request and get response
         String str = OkHttpUtils.builder()
                 .url(ApiService.HOST + "/mill")
                 .post(JsonUtils.toJsonString(context))

@@ -1,4 +1,4 @@
-package mill;
+package net.heimeng.mill;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import net.miginfocom.swing.MigLayout;
@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-import util.MethodUtil;
+import net.heimeng.util.MethodUtil;
 
 public class LeftPanel extends JPanel {
 
