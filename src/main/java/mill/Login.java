@@ -37,7 +37,8 @@ public class Login extends JPanel {
         login.addActionListener(e -> {
             String userName2 = userName.getText().trim();
             String passWord2 = String.valueOf(passWord.getPassword());
-            new GameFrame();
+
+
             if (!userName2.isEmpty() && !passWord2.isEmpty()) {
                 UserCredentials loginCredentials = new UserCredentials(
                         userName.getText().trim(),
@@ -52,6 +53,7 @@ public class Login extends JPanel {
 
                                 // Our server returns a JSON object containing the token
                                 try {
+                                    new GameFrame();
                                     // Parse the response to get the token
                                     ObjectMapper objectMapper = new ObjectMapper();
                                     Map<String, Object> responseMap = objectMapper.readValue(data, new TypeReference<>() {});
@@ -60,7 +62,7 @@ public class Login extends JPanel {
 //                                    afterLogin();
 
                                     // Save the token
-                                    TokenStorage.setToken(token);
+                                    //TokenStorage.setToken(token);
 
                                     // Optionally, inform the user that Login was successful
                                     JOptionPane.showMessageDialog(null, "Login successful!");

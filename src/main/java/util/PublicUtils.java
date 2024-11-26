@@ -49,9 +49,7 @@ public class PublicUtils {
         // 将 AI 返回的消息显示在屏幕上
         MethodUtil.runWithThread(() -> ChatPanel.showArea.append(buildMessage(response) + "\n\n"));
 
-        if(ChatPanel.END) {
-            MethodUtil.runWithThread(() -> ChatPanel.showArea.append(buildMessage(response) + "\n\n"));
-        }
+
         // 用 LinkedHashMap 存储用户与 AI 的聊天记录
         context.add(Map.of("user", request));
         context.add(Map.of("assistant", response.toString()));
