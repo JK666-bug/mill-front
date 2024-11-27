@@ -25,7 +25,7 @@ java -jar .\Millionaire-1.0-RC1.jar
 
 ## User Interface(GUI) (10 mark)
 
-<u>**Clear and well-designed graphical user interface following common standards:**</u>
+**Clear and well-designed graphical user interface following common standards:**
 
 
 
@@ -43,7 +43,7 @@ We designed a beautiful game cover and a clear and concise GUI interface to meet
 
 #### 
 
-<u>**The interface is easy for users to interact with:**</u>
+**The interface is easy for users to interact with:**
 
 game page
 
@@ -85,7 +85,7 @@ Since we use a cloud-based server, we use jar packages on the back end to facili
 
 
 
-<u>The users interact with the program without any errors:</u>
+**The users interact with the program without any errors:**
 
 We use a try-catch method to log error, and we also use a prompt box to interact with the user when an error message occurs, such as when the user does not enter a password
 
@@ -93,8 +93,7 @@ We use a try-catch method to log error, and we also use a prompt box to interact
 
 
 
-
-<u>The complexity of the functionalit:</u>
+**The complexity of the functionalit:**
 
 Our games interact directly with the AI, and in each round of the game, the user can choose the corresponding answer or the corresponding help function. Our AI can use the context to return the data we need to keep the game going. Our game features meet the requirements of the game, meet the complexity of the function
 
@@ -102,12 +101,12 @@ Our games interact directly with the AI, and in each round of the game, the user
 
 ## Software Design& Implementation (30 mark)
 
-<u>The program can be compiled successfully</u>
+**The program can be compiled successfully**
 
 ![image](https://github.com/user-attachments/assets/ec6971fb-65df-48c3-9dd5-71727a85a3ee)
 
 
-<u>The purpose of the code is easy to understand by reading it</u>
+**The purpose of the code is easy to understand by reading it**
 
 We are satisfied with: 
 
@@ -116,15 +115,15 @@ Well-structured: Code is organized into logical blocks that are easy to follow, 
 Follow best practices: The code follows widely accepted programming best practices, such as avoiding magic numbers, using meaningful constants, and keeping functions short and focused on a single purpose.
 Consistency: The code is consistent in style, naming, and structure, which makes it easier to read and understand.
 
-<u>The comments in the code are useful and appropriate</u>
+**The comments in the code are useful and appropriate**
 
 
 
-<u>The code executes without runtime errors</u>
+**The code executes without runtime errors**
 
 
 
-<u>The Git/GitHub version control is applied</u>
+**The Git/GitHub version control is applied**
 
 ![image](https://github.com/user-attachments/assets/a6ba1e14-18a5-4d55-a6a6-62da172e85c8)
 
@@ -136,7 +135,7 @@ We use git tools on github and use a team approach to develop projects
 
 
 
-<u>Design patterns are implemented correctly where appropriate</u>
+**Design patterns are implemented correctly where appropriate**
 
 We used the MVC design pattern:
 Model: Responsible for encapsulating the data and processing the data. It does not depend on the View and Controller, that is, it does not care how the data will be displayed or manipulated. Our model is capable of processing user interaction data and information
@@ -145,7 +144,7 @@ View: Responsible for data display. It generally does not have procedural logic,
 
 Controller: Acts as an organization between the different layers to control the flow of the application. It processes and responds to events, including user behavior and changes on the Model. We defined a number of interactions before and after button event users.
 
-<u>A good coding style is used, following appropriate coding standards</u>:
+**A good coding style is used, following appropriate coding standards**
 
 ![image](https://github.com/user-attachments/assets/130a9173-b3f6-49e8-9005-59b49f9c45fb)
 
@@ -186,7 +185,7 @@ Each test section conforms to the test writing specification.
 
 We passed the user registration, add, delete test, which is the most important basic function of the user login and registration.
 
-**<u>The tests are well-named</u>**
+**The tests are well-named**
 
 ![image](https://github.com/user-attachments/assets/b29477ad-c061-4de4-afbb-8db310ecacd4)
 
