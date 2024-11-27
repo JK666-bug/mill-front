@@ -56,7 +56,7 @@ We have clearly divided the interface into several sections (score, function, di
 
 ## Database (20 mark)
 
-<u>**The program contains a database element:**:</u>
+**The program contains a database element:**
 
 ![image](https://github.com/user-attachments/assets/8780ac71-5b8b-42d4-8b4a-482a4a42e160)
 
@@ -79,7 +79,7 @@ They are operations on the question table and operations on the user table. We r
 
 ## Software Functionality and Usability (30 mark)
 
-<u>The program is easy to compile and run without any manual configurations</u>
+**The program is easy to compile and run without any manual configurations:**
 
 Since we use a cloud-based server, we use jar packages on the back end to facilitate compilation.
 
