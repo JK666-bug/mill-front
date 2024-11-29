@@ -27,6 +27,7 @@ public class PublicUtils {
 
     public static MillDTO sendAndGetMillDTO(String request) throws JsonProcessingException {
         // 将用户发送消息显示在屏幕上
+        context.add(Map.of("user", request));
         MethodUtil.runWithThread(() -> ChatPanel.showArea.append(request + "\n\n"));
 
         // Send net.heimeng.request and get response
@@ -35,11 +36,13 @@ public class PublicUtils {
                 .post(JsonUtils.toJsonString(context))
                 .async();
 
+        System.out.println(context);
+        System.out.println(JsonUtils.toJsonString(context));
+
         System.out.println("\nPost successfully! The response is: " + str);
 
         // Resolve the R<MillDTO> Json String
-        R<MillDTO> result = JsonUtils.parseObject(str, new TypeReference<>() {
-        });
+        R<MillDTO> result = JsonUtils.parseObject(str, new TypeReference<>() {});
         System.out.println("\nThe Json has been parsed to R<MillDTO> successfully: " + result);
 
         // 在此处我们拿到了 MillDTO
@@ -51,10 +54,9 @@ public class PublicUtils {
 
 
         // 用 LinkedHashMap 存储用户与 AI 的聊天记录
-        context.add(Map.of("user", request));
         context.add(Map.of("assistant", response.toString()));
 
-        System.out.println("\nThe context list: " + context);
+        System.out.println("\nThe context list in json: " + JsonUtils.toJsonString(context));
         return response;
     }
 

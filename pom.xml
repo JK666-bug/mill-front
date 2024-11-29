@@ -107,6 +107,8 @@
                             <mainClass>net.heimeng.Application</mainClass>
                         </manifest>
                     </archive>
+                    <finalName>Millionaire-${project.version}</finalName>
+                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
                     <execution>

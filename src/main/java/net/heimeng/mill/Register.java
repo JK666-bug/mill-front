@@ -1,6 +1,6 @@
 package net.heimeng.mill;
 
-import net.heimeng.entity.UserCredentials;
+import net.heimeng.model.UserCredentials;
 import net.heimeng.request.ApiService;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.util.UIScale;
@@ -19,7 +19,6 @@ public class Register extends JFrame {
     }
 
     private void init() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
         setLocationRelativeTo(null);
         setMinimumSize(UIScale.scale(new Dimension(750, 500)));

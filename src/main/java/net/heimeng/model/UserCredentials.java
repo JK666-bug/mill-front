@@ -1,5 +1,10 @@
-package net.heimeng.entity;
+package net.heimeng.model;
 
+/**
+ * 用户登录请求信息
+ *
+ * @author JK
+ */
 public class UserCredentials {
     private String username;
     private String password;

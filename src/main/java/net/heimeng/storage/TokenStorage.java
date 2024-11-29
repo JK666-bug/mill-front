@@ -10,9 +10,18 @@ import java.nio.file.Paths;
  */
 public class TokenStorage {
     private static final String TOKEN_FILE_PATH = "src/main/resources/config/.tmp"; // 指定文件路径
+    private static String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public static void setToken(String token) {
+        TokenStorage.token = token;
+    }
 
     // 保存 token 到文件
-    public static void setToken(String token) {
+    public static void saveToken(String token) {
         try {
             Files.write(Paths.get(TOKEN_FILE_PATH), token.getBytes());
         } catch (IOException e) {
@@ -21,7 +30,7 @@ public class TokenStorage {
     }
 
     // 从文件读取 token
-    public static String getToken() {
+    public static String readToken() {
         try {
             return new String(Files.readAllBytes(Paths.get(TOKEN_FILE_PATH)));
         } catch (IOException e) {

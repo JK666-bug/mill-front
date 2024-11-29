@@ -37,19 +37,15 @@ public class ChatPanel extends JPanel {
                 initAll();
                 PublicUtils.refreshContext();
                 btnEndGame.setText("END");
-                LeftPanel.buttonA.setEnabled(true);
-                LeftPanel.buttonB.setEnabled(true);
-                LeftPanel.buttonC.setEnabled(true);
+                enableLeftPanelButtons();
                 sendChoice("I want to play Who Wants To Be A Millionaire! You should ask me 5 different questions partly. Now let's start!\n");
 
             } else {
                 END= false;
-                ChatPanel.showArea.append("Congratulations! You got " + calculateDollars(score) + " dollars!\n");
+                ChatPanel.showArea.append("\nCongratulations! You got " + calculateDollars(score) + " dollars!\n");
                 btnEndGame.setText("START");
-                buttonDisable();
-                LeftPanel.buttonA.setEnabled(false);
-                LeftPanel.buttonB.setEnabled(false);
-                LeftPanel.buttonC.setEnabled(false);
+                disableButton();
+                disableLeftPanelButtons();
             }
         });
 
@@ -57,28 +53,28 @@ public class ChatPanel extends JPanel {
         buttonA = new JButton("A");
         buttonA.setFont(new Font("Serif", Font.PLAIN, 15));
         buttonA.addActionListener(e -> {
-            buttonDisable();
+            disableButton();
             sendChoice("I choose A");
         });
 
         buttonB = new JButton("B");
         buttonB.setFont(new Font("Serif", Font.PLAIN, 15));
         buttonB.addActionListener(e -> {
-            buttonDisable();
+            disableButton();
             sendChoice("I choose B");
         });
 
         buttonC = new JButton("C");
         buttonC.setFont(new Font("Serif", Font.PLAIN, 15));
         buttonC.addActionListener(e -> {
-            buttonDisable();
+            disableButton();
             sendChoice("I choose C");
         });
 
         buttonD = new JButton("D");
         buttonD.setFont(new Font("Serif", Font.PLAIN, 15));
         buttonD.addActionListener(e -> {
-            buttonDisable();
+            disableButton();
             sendChoice("I choose D");
 
         });
@@ -101,7 +97,7 @@ public class ChatPanel extends JPanel {
         add(panelBottom, "cell 0 1, grow");
         panelBottom.revalidate();
         panelBottom.repaint();
-        buttonDisable();
+        disableButton();
 
         showArea = new JTextArea(12, 34);
         scrollPane = new JScrollPane(showArea);
@@ -109,6 +105,18 @@ public class ChatPanel extends JPanel {
         showArea.setFont(new Font("Arial", Font.PLAIN, 16));
         showArea.setCaretPosition(showArea.getDocument().getLength());
         add(scrollPane, "cell 0 0, grow");
+    }
+
+    private static void enableLeftPanelButtons() {
+        LeftPanel.buttonA.setEnabled(true);
+        LeftPanel.buttonB.setEnabled(true);
+        LeftPanel.buttonC.setEnabled(true);
+    }
+
+    private void disableLeftPanelButtons() {
+        LeftPanel.buttonA.setEnabled(false);
+        LeftPanel.buttonB.setEnabled(false);
+        LeftPanel.buttonC.setEnabled(false);
     }
 
     private void initAll() {
@@ -126,14 +134,14 @@ public class ChatPanel extends JPanel {
         showArea.setText("Please click button to start\n");
     }
 
-    public void buttonDisable() {
+    public void disableButton() {
         buttonA.setEnabled(false);
         buttonB.setEnabled(false);
         buttonC.setEnabled(false);
         buttonD.setEnabled(false);
     }
 
-    public void buttonEnable() {
+    public void enableButton() {
         buttonA.setEnabled(true);
         buttonB.setEnabled(true);
         buttonC.setEnabled(true);
@@ -172,7 +180,7 @@ public class ChatPanel extends JPanel {
                 throw new RuntimeException(e);
             }
             sendChoiceHandler(dto);
-            buttonEnable();
+            enableButton();
             LeftPanel.number.setText(dto.getProgress().toString());
             if (dto.getQuestion() != null) {
                 System.out.println(dto.getQuestion().getAnswer());
@@ -186,7 +194,7 @@ public class ChatPanel extends JPanel {
             } else {
                 switch (dto.getProgress()) {
                     case 0:
-                        buttonDisable();
+                        disableButton();
                         showArea.append("What a shame! You didn't get money, please click END button to restart");
                         break;
                     case 20:
@@ -208,6 +216,9 @@ public class ChatPanel extends JPanel {
                     case 100:
                         LeftPanel.label4.setForeground(new Color(1, 1, 1, 0.5f));
                         LeftPanel.label5.setForeground(Color.YELLOW);
+                        disableButton();
+                        disableLeftPanelButtons();
+                        showArea.append("please click END button to restart");
                         break;
                 }
             }
