@@ -12,7 +12,7 @@
 
 > [!Note]
 >
-> To avoid installation errors, you can download our [JAR package](https://github.com/JK666-bug/mill-front/releases/tag/v1.0.0-RC1) directly.
+> To avoid installation errors, you can download our [JAR package](https://github.com/JK666-bug/mill-front/releases) directly.
 
 ```shell
 java -jar .\Millionaire-1.0-RC1.jar
